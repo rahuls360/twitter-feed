@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PostTweet from './components/PostTweet';
+import Tweet from './components/Tweet';
 
 class App extends Component {
   state = {
@@ -17,6 +18,7 @@ class App extends Component {
     return (
       <>
         <PostTweet addTweet={this.addTweet}></PostTweet>
+        {Object.keys(this.state.tweets).map((key)=> <Tweet tweets={this.state.tweets} key={key} index={key}></Tweet>)}
       </>
     );
   }
