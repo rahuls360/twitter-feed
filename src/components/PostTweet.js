@@ -3,8 +3,8 @@ import React from 'react';
 class PostTweet extends React.Component{
     postTweetRef = React.createRef();
     handleTextbox = (event) => {
-        console.log(this.postTweetRef.current.value);
         this.props.addTweet(this.postTweetRef.current.value);
+        event.currentTarget.reset()
         event.preventDefault();
     }
     render(){
