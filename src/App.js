@@ -1,26 +1,23 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import PostTweet from './components/PostTweet';
 
 class App extends Component {
+  state = {
+    tweets: {},
+    index: 1
+  }
+  addTweet = (tweet) => {
+    const tweets = {...this.state.tweets};
+    let index = this.state.index;
+    tweets[index] = tweet;
+    ++index;
+    this.setState({tweets: tweets, index: index});
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <>
+        <PostTweet addTweet={this.addTweet}></PostTweet>
+      </>
     );
   }
 }
