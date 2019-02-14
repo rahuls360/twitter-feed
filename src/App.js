@@ -20,6 +20,15 @@ class App extends Component {
     base.removeBinding(this.ref);
   }
 
+  componentDidUpdate() {
+    const index = Object.keys(this.state.tweets).length;
+    console.log(index);
+    if (index > 0) {
+      this.setState({ index: index });
+    }
+    // console.log(this.state.tweets);
+  }
+
   addTweet = tweet => {
     const tweets = { ...this.state.tweets };
     let index = this.state.index;
