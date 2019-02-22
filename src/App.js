@@ -20,27 +20,23 @@ class App extends Component {
     base.removeBinding(this.ref);
   }
 
-  componentDidUpdate() {
-    const index = Object.keys(this.state.tweets).length;
-    console.log(index);
-    if (index > 0) {
-      this.setState({ index: index });
-    }
-    // console.log(this.state.tweets);
-  }
-
   addTweet = tweet => {
-    const tweets = { ...this.state.tweets };
+    const tweets = {
+      ...this.state.tweets
+    };
     let index = this.state.tweets.length || 0;
     tweets[index] = tweet;
     index++;
-    this.setState({ tweets: tweets, index: index });
+    this.setState({
+      tweets: tweets,
+      index: index
+    });
   };
 
   render() {
     return (
       <>
-        <PostTweet addTweet={this.addTweet} />
+        <PostTweet addTweet={this.addTweet} />{" "}
         {Object.keys(this.state.tweets).map(key => (
           <Tweet tweets={this.state.tweets} key={key} index={key} />
         ))}
