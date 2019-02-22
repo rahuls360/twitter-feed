@@ -6,7 +6,7 @@ import base from "./base";
 class App extends Component {
   state = {
     tweets: {},
-    index: 1
+    index: 0
   };
 
   componentDidMount() {
@@ -22,9 +22,9 @@ class App extends Component {
 
   addTweet = tweet => {
     const tweets = { ...this.state.tweets };
-    let index = this.state.index;
+    let index = this.state.tweets.length || 0;
     tweets[index] = tweet;
-    ++index;
+    index++;
     this.setState({ tweets: tweets, index: index });
   };
 
