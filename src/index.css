@@ -20,3 +20,8 @@ body {
 .well {
   background: antiquewhite;
 }
+
+.left-margin {
+  position: absolute;
+  left: 50%;
+}
