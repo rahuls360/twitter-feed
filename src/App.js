@@ -33,12 +33,19 @@ class App extends Component {
     });
   };
 
+  deleteTweet = (index) => {
+    let tweets = {...this.state.tweets};
+    console.log(index);
+    tweets[index] = null;
+    this.setState({tweets: tweets});
+  }
+
   render() {
     return (
       <>
         <PostTweet addTweet={this.addTweet} />{" "}
         {Object.keys(this.state.tweets).map(key => (
-          <Tweet tweets={this.state.tweets} key={key} index={key} />
+          <Tweet tweets={this.state.tweets} key={key} index={key} deleteTweet={this.deleteTweet}/>
         ))}
       </>
     );

@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 class Tweet extends React.Component {
   render() {
@@ -8,8 +7,7 @@ class Tweet extends React.Component {
         <p>
           {this.props.tweets[this.props.index]}
           <span className="left-margin">
-            <Link to="/edit">Edit</Link>
-            <Link to="/delete">Delete</Link>
+            <button onClick={()=> this.props.deleteTweet(this.props.index)}>X</button>
           </span>
         </p>
       </div>
